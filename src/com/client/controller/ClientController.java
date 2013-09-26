@@ -55,11 +55,6 @@ public class ClientController {
         });
     }
 
-    @RequestMapping("/welcome")
-    public String welcomePage() {
-        return "login";
-    }
-
     @ModelAttribute("user")
     public User getLoginForm() {
         return new User();
@@ -76,21 +71,6 @@ public class ClientController {
         List<Client> list = dao.read(new ClientCriteria());
         logger.debug("list: {}", list);
         model.put("clients", list);
-        return "clients";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("user") User user,
-                        BindingResult result, Map model) {
-        logger.info("login: {}, password: {}", user.getLogin(), user.getPassword());
-        if (result.hasErrors()) {
-            return "error";
-        }
-        if (user.getLogin().length() == 0 || user.getPassword().length() == 0) {
-            model.put("message", "Введите логин и пароль");
-            return "login";
-        }
-        model.put("user", user);
         return "clients";
     }
 

@@ -74,7 +74,8 @@
     <tr valign="top">
         <td><button id="opener" class="styler">Добавить</button></td>
         <td><button id="finder" class="styler">Найти</button></td>
-        <td><fm:form action="listClients"> <input type="submit" value="Все клиенты" class="styler"/></fm:form></td>
+        <td><button class="styler" onclick="window.location='<c:url value="/forms/listClients"/>'">Все клиенты</button></td>
+        <td><button class="styler" onclick="window.location='<c:url value="/j_spring_security_logout" />'">Выход</button></td>
     </tr>
 </table>
 
